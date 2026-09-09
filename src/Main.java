@@ -62,7 +62,7 @@ public class Main {
                     scanner.nextLine();
                     System.out.println("Введите имя игрока, счет которого хотите изменить:");
                     String editname = scanner.nextLine();
-                    System.out.println("Введите новый счет:");
+                    System.out.println("Введите новый счет: ");
                     int scoreedit = scanner.nextInt();
                     editScore(players, editname, scoreedit);
                     break;
