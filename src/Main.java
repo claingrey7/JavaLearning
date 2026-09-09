@@ -101,11 +101,9 @@ public class Main {
 
     }
     public static Player showPlayerName(ArrayList<Player> players, String targget){
-        Player findPlayer = players.get(0);
         for (Player player: players){
             if (player.name.equals(targget)){
-                findPlayer = player;
-                return findPlayer;
+                return player;
             }
         }
         return null;
