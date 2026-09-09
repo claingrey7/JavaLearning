@@ -70,8 +70,13 @@ public class Main {
                     scanner.nextLine();
                     System.out.println("Введите номер игрока:");
                     int target = scanner.nextInt();
-                    Player pplayer = showPlayerNumber(players, target);
-                    System.out.println(pplayer.name + ": "+ pplayer.score);
+                    if (target < 1 || target>players.size()){
+                        System.out.println("Нет игрока с таким номером");
+                    }
+                    else{
+                        Player pplayer = showPlayerNumber(players, target);
+                        System.out.println(pplayer.name + ": "+ pplayer.score);
+                    }
                     break;
                 case 0:
                     System.out.println("Выход");
