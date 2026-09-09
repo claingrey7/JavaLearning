@@ -78,6 +78,18 @@ public class Main {
                         System.out.println(pplayer.name + ": "+ pplayer.score);
                     }
                     break;
+                case 9:
+                    scanner.nextLine();
+                    System.out.println("Введите имя игрока которого хотите найти");
+                    String targget = scanner.nextLine();
+                    Player findplayer = showPlayerName(players,targget);
+                    if (findplayer == null){
+                        System.out.println("Нет игрока с таким именем");
+                    }
+                    else{
+                        System.out.println(findplayer.name + ": " +findplayer.score);
+                    }
+                   break;
                 case 0:
                     System.out.println("Выход");
                     break;
@@ -87,6 +99,16 @@ public class Main {
             }
         }
 
+    }
+    public static Player showPlayerName(ArrayList<Player> players, String targget){
+        Player findPlayer = players.get(0);
+        for (Player player: players){
+            if (player.name.equals(targget)){
+                findPlayer = player;
+                return findPlayer;
+            }
+        }
+        return null;
     }
     public static Player showPlayerNumber(ArrayList<Player> players, int target){
         return players.get(target-1);
