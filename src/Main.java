@@ -13,7 +13,7 @@ public class Main {
         players.add(new Player("Олег", 812));
         int choice = -1;
         while (choice != 0){
-            System.out.println("Выберите действие: 1 - показать игроков, 2 - найти лучшего, 3 - выдать бонус, 4 - посчитать средний счет игроков, 5 - добавить игрока, 6 - удалить игрока, 7 - изменить счет игроку, 0 - выйти");
+            System.out.println("Выберите действие:1-показать игроков,2-найти лучшего,3-выдать бонус,4-посчитать средний счет игроков,5-добавить игрока,6-удалить игрока,7-изменить счет игроку,8-показать игрока по номеру,0-выйти");
             choice = scanner.nextInt();
             switch (choice){
                 case 1:
@@ -34,12 +34,6 @@ public class Main {
                     System.out.println("Введите сумму бонуса:");
                     int bonus = scanner.nextInt();
                     addBonus(players,bonus);
-                    break;
-                case 0:
-                    System.out.println("Выход");
-                    break;
-                default:
-                    System.out.println("Такого выбора нет");
                     break;
                 case 4:
                     double avg = avgScore(players);
@@ -72,9 +66,25 @@ public class Main {
                     int scoreedit = scanner.nextInt();
                     editScore(players, editname, scoreedit);
                     break;
+                case 8:
+                    scanner.nextLine();
+                    System.out.println("Введите номер игрока:");
+                    int target = scanner.nextInt();
+                    Player pplayer = showPlayerNumber(players, target);
+                    System.out.println(pplayer.name + ": "+ pplayer.score);
+                    break;
+                case 0:
+                    System.out.println("Выход");
+                    break;
+                default:
+                    System.out.println("Такого выбора нет");
+                    break;
             }
         }
 
+    }
+    public static Player showPlayerNumber(ArrayList<Player> players, int target){
+        return players.get(target-1);
     }
     public static void editScore(ArrayList<Player> players, String editname, int scoreedit){
         for (Player player:players){
